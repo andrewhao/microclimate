@@ -1,5 +1,6 @@
 require "microclimate/version"
+require "microclimate/base"
+require "microclimate/client"
+require "microclimate/response"
+require "microclimate/repository"
 
-module Microclimate
-  # Your code goes here...
-end
