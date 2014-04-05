@@ -22,13 +22,18 @@ module Microclimate
     end
 
     def refresh!
+      output = connection.post resource_refresh_url, :api_token => api_token
+      json = output.body
+      Response.new JSON.parse(json)
     end
+
+    def resource_refresh_url
+      "#{resource_url}/refresh"
     end
 
     def resource_url
       "/api/repos/#{repo_id}"
     end
   end
-
 end
 
