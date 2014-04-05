@@ -1,3 +1,8 @@
+[![Code
+Climate](https://codeclimate.com/github/andrewhao/microclimate.png)](https://codeclimate.com/github/andrewhao/microclimate)
+[![Build
+Status](https://travis-ci.org/andrewhao/microclimate.svg)](https://travis-ci.org/andrewhao/microclimate)
+
 # Microclimate
 
 TODO: Write a gem description
