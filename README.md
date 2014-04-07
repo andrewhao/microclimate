@@ -5,7 +5,10 @@ Status](https://travis-ci.org/andrewhao/microclimate.svg)](https://travis-ci.org
 
 # Microclimate
 
-TODO: Write a gem description
+A Ruby wrapper to the [Code Climate
+API](https://codeclimate.com/docs/api). Note that it, as documented, is
+"at the moment, extremely rudimentary, unsupported, and subject to
+change."
 
 ## Installation
 
@@ -23,7 +26,34 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Initializing the client & connecting to the repo.
+
+```ruby
+client = Microclimate::Client.new :api_token =>
+"321786539ec44cb4ae96b86e09209828416542fe"
+repo = client.repository_for "533329e76956801171001e7e" # #<Microclimate::Repository:0x007f9764730548
+```
+
+### Updating the repository
+
+```ruby
+repo.refresh!
+```
+
+### Getting the GPA
+
+```ruby
+repo.id # => "533329e76956801171001e7e"
+repo.last_snapshot # => {"gpa" => 2.31}
+repo.previous_snapshot # => {"gpa" => 2.25}
+```
+
+### Branches
+
+```ruby
+repo.branch_for("my_test_branch").last_snapshot # => {"gpa" => 2.40}
+repo.branch_for("master").last_snapshot # => {"gpa" => 2.25}
+```
 
 ## Contributing
 
