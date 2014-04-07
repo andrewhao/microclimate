@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "rake"
 
+  spec.add_runtime_dependency "psych"
   spec.add_runtime_dependency "hashie"
   spec.add_runtime_dependency "faraday"
 end
