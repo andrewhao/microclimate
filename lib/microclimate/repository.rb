@@ -33,7 +33,7 @@ module Microclimate
     end
 
     def branch_for(branch_name)
-      Branch.new(self, branch_name)
+      Branch.new(client, self, branch_name)
     end
 
     protected
