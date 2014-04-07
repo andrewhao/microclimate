@@ -1,4 +1,5 @@
 require "spec_helper"
+require "ostruct"
 
 describe Microclimate::Snapshot do
   let(:gpa) { 3.00 }
