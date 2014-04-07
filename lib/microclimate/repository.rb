@@ -26,6 +26,10 @@ module Microclimate
       Response.new JSON.parse(json)
     end
 
+    def ready?
+      !last_snapshot.nil?
+    end
+
     def status
       output = connection.get resource_url, :api_token => api_token
       json = output.body

@@ -35,6 +35,26 @@ describe Microclimate::Repository do
     end
   end
 
+  describe "#ready?" do
+    before :each do
+      stub_request(:get, url).with(:api_token => api_token).to_return(:body => json_response.to_json)
+    end
+
+    context " with a snapshot" do
+      it "returns true" do
+        expect(subject).to be_ready
+      end
+    end
+
+    context "without a snapshot" do
+      let(:last_snapshot) { {} }
+
+      it "returns false" do
+        expect(subject).to_not be_ready
+      end
+    end
+  end
+
   describe "#refresh!" do
     let(:url) { subject.host + "/api/repos/" + repo_id + "/refresh" }
     let(:json_response) do
