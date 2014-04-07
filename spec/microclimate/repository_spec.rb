@@ -62,6 +62,16 @@ describe Microclimate::Repository do
     end
   end
 
+  context "branching" do
+    let(:branch_name) { "my_branch" }
+
+    describe "#branch_for" do
+      it "returns a Branch" do
+        expect(subject.branch_for(branch_name)).to be_instance_of Microclimate::Branch
+      end
+    end
+  end
+
   describe "#gpa" do
     before :each do
       stub_request(:get, url).with(:api_token => api_token).to_return(:body => json_response.to_json)

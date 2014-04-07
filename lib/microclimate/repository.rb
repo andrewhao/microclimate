@@ -32,7 +32,11 @@ module Microclimate
       Response.new JSON.parse(json)
     end
 
-    private
+    def branch_for(branch_name)
+      Branch.new(self, branch_name)
+    end
+
+    protected
 
     def last_snapshot
       snapshot = status.last_snapshot
