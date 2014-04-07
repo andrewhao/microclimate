@@ -72,6 +72,13 @@ describe Microclimate::Repository do
     end
   end
 
+  describe "#www_url" do
+    it "returns the Code Climate HTML report" do
+      url = "https://codeclimate.com/repos/#{repo_id}"
+      expect(subject.www_url).to eq url
+    end
+  end
+
   describe "#id" do
     before :each do
       stub_request(:get, url).with(:api_token => api_token).to_return(:body => json_response.to_json)

@@ -40,6 +40,10 @@ module Microclimate
       Branch.new(client, self, branch_name)
     end
 
+    def www_url
+      "https://codeclimate.com/repos/#{repo_id}"
+    end
+
     protected
 
     def last_snapshot
