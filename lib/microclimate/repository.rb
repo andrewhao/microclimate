@@ -22,8 +22,7 @@ module Microclimate
     # Force Code Climate to refresh this repository (at the master branch)
     def refresh!
       output = connection.post resource_refresh_url, :api_token => api_token
-      json = output.body
-      Response.new JSON.parse(json)
+      output.success?
     end
 
     def ready?

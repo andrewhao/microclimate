@@ -57,12 +57,12 @@ describe Microclimate::Repository do
 
   describe "#refresh!" do
     let(:url) { subject.host + "/api/repos/" + repo_id + "/refresh" }
-    let(:json_response) do
-      {"hello" => "world"}
+    let(:response) do
+      "some html text"
     end
 
     before :each do
-      stub_request(:post, url).with(:api_token => api_token).to_return(:body => json_response.to_json)
+      stub_request(:post, url).with(:api_token => api_token).to_return(:body => response.to_json)
     end
 
     it "POSTs to /api/repos/:repo_id/refresh" do
