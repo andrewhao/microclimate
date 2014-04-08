@@ -10,6 +10,10 @@ module Microclimate
 
     delegate :repo_id => :parent_repo
 
+    def www_url
+      "https://codeclimate.com/repos/#{repo_id}/compare/#{name}"
+    end
+
     protected
 
     def resource_url

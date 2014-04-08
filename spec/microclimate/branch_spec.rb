@@ -33,6 +33,13 @@ describe Microclimate::Branch do
     end
   end
 
+  describe "#www_url" do
+    it "returns the branch compare view" do
+      url = "https://codeclimate.com/repos/#{repo_id}/compare/#{name}"
+      expect(subject.www_url).to eq url
+    end
+  end
+
   describe "#refresh!" do
     let(:url) { "#{base_url}/refresh" }
 
