@@ -42,9 +42,10 @@ describe Microclimate::Branch do
 
   describe "#refresh!" do
     let(:url) { "#{base_url}/refresh" }
+    let(:response) { "some html text" }
 
     it "hits the branch Code Climate URL with a POST" do
-      stub_request(:post, url).with(:api_token => api_token).to_return(:body => json_response.to_json)
+      stub_request(:post, url).with(:api_token => api_token).to_return(:body => response.to_json)
       subject.refresh!
 
       expect(a_request(:post, url)).to have_been_made
