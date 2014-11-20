@@ -44,8 +44,9 @@ repo.refresh!
 
 ```ruby
 repo.id # => "533329e76956801171001e7e"
-repo.last_snapshot # => {"gpa" => 2.31}
-repo.previous_snapshot # => {"gpa" => 2.25}
+repo.last_snapshot.gpa # => 2.05
+repo.last_snapshot.finished_at # => <DateTime>
+repo.previous_snapshot.gpa # => 2.25
 ```
 
 ### Branches
