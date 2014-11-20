@@ -8,6 +8,10 @@ module Microclimate
       @data = data
     end
 
+    def finished_at
+      DateTime.new(data.finished_at)
+    end
+
     delegate :gpa => :data,
       :commit_sha => :data
   end

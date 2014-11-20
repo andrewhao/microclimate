@@ -51,6 +51,7 @@ repo.previous_snapshot # => {"gpa" => 2.25}
 ### Branches
 
 ```ruby
+repo.branch_for("my_test_branch").refresh! # => kicks off a new analysis of the branch.
 repo.branch_for("my_test_branch").last_snapshot # => {"gpa" => 2.40}
 repo.branch_for("master").last_snapshot # => {"gpa" => 2.25}
 ```
