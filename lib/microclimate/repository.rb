@@ -15,8 +15,6 @@ module Microclimate
 
     delegate :api_token => :client,
       :id => :status,
-      :last_snapshot => :status,
-      :previous_snapshot => :status,
       :gpa => :last_snapshot
 
     # Force Code Climate to refresh this repository (at the master branch)
@@ -43,12 +41,9 @@ module Microclimate
       "https://codeclimate.com/repos/#{repo_id}"
     end
 
-    protected
-
     def last_snapshot
       snapshot = status.last_snapshot
       return nil if snapshot.nil?
-
       Snapshot.new(snapshot)
     end
 
@@ -58,6 +53,8 @@ module Microclimate
 
       Snapshot.new(snapshot)
     end
+
+    protected
 
     def resource_refresh_url
       "#{resource_url}/refresh"
