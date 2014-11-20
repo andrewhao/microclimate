@@ -4,10 +4,12 @@ require "ostruct"
 describe Microclimate::Snapshot do
   let(:gpa) { 3.00 }
   let(:sha) { "abcdef1234" }
+  let(:utc_seconds) { 1368165666 }
   let(:data) do
     json = {
       :gpa => gpa,
-      :commit_sha => sha
+      :commit_sha => sha,
+      :finished_at => utc_seconds
     }
     OpenStruct.new(json)
   end
@@ -22,6 +24,12 @@ describe Microclimate::Snapshot do
   describe "#commit_sha" do
     it "returns json sha" do
       expect(subject.commit_sha).to eq sha
+    end
+  end
+
+  describe "#finished_at" do
+    it "returns a DateTime" do
+      expect(subject.finished_at).to be_instance_of DateTime
     end
   end
 end

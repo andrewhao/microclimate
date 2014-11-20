@@ -3,7 +3,7 @@ require "spec_helper"
 describe Microclimate::Repository do
   let(:repo_id) { "my_repo_id" }
   let(:api_token) { "my_api_token" }
-  let(:client) { mock("client", :api_token => api_token) }
+  let(:client) { double("client", :api_token => api_token) }
   let(:url) { subject.host + "/api/repos/" + repo_id + "?api_token=" + api_token }
   let(:gpa) { 2.25 }
   let(:previous_gpa) { 2.50 }
